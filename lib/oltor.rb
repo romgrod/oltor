@@ -3,6 +3,7 @@ require "oltor/version"
 require 'debugger'
 require 'colorize'
 
+module Oltor
 class Load
 	
 	attr_reader :results
@@ -162,13 +163,14 @@ class Load
 end
 
 
-	def self.load_url
-		test = Test.new
-		yield test
-		test.run
-		my_test.joined_report
-		my_test.separated_reports
-	end
 
 
+end
+	
+def load
+	test = Oltor::Load.new
+	yield test
+	test.run
+	my_test.joined_report
+	my_test.separated_reports
 end
