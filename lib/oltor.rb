@@ -9,7 +9,7 @@ class Load
 	attr_reader :results
 	attr_writer :url, :time, :max, 
 
-	def initialize(url, max=nil)
+	def initialize
 		@time	= 10	
 		@results = {}
 		@client_groups = [5,10,20,30,40,50]
