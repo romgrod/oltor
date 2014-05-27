@@ -171,6 +171,6 @@ def load
 	test = Oltor::Load.new
 	yield test
 	test.run
-	my_test.joined_report
-	my_test.separated_reports
+	test.joined_report
+	test.separated_reports
 end
