@@ -16,12 +16,12 @@ class Load
 	end
 
 	def execute clients
-		raise "url not defined" if @url.nil?
+		raise "url not defined" unless @url
 		@results["#{clients}"]=`openload -l #{@time} #{@url} #{clients}`
 	end
 
 	def run
-
+		raise "Max value must be defined" unless @max
 		@client_groups.each do |clients|
 			break if clients > @max
 			execute clients
