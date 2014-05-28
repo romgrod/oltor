@@ -1,6 +1,6 @@
 # Oltor
 
-TODO: Write a gem description
+This is the first idea. Not finished yet.
 
 ## Installation
 
@@ -16,11 +16,20 @@ Or install it yourself as:
 
     $ gem install oltor
 
-## Usage
-
 OpenLoad must be installed on the system
 
 	sudo apt-get install openload
+
+## Usage
+	
+	oltor do |load|
+		load.url = "http://your_url_to_request"
+		load.max = 10
+		load.report = true
+	end
+
+
+
 
 ## Contributing
 

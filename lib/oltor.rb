@@ -7,11 +7,12 @@ module Oltor
 class Load
 	
 	attr_reader :results
-	attr_writer :url, :time, :max, 
+	attr_writer :url, :time, :max, :report
 
 	def initialize
 		@time	= 10	
 		@results = {}
+		@report = false
 		@client_groups = [5,10,20,30,40,50]
 	end
 
@@ -46,6 +47,7 @@ class Load
 	end
 
 	def joined_report
+		return unless @report
 		system('clear')
 		puts "URL:#{@url}"
 		puts "Time:#{@time}"
@@ -64,6 +66,7 @@ class Load
 	end
 
 	def separated_reports
+		return unless @report
 		puts "\n"
 		total_tps_report
 		puts "\n"
@@ -167,10 +170,11 @@ end
 
 end
 	
-def load
+def oltor
 	test = Oltor::Load.new
 	yield test
 	test.run
 	test.joined_report
 	test.separated_reports
+	test.results
 end
